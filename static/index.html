@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APS 生產排程</title><link rel="stylesheet" href="/style.css"></head>
+<body><header><div class="brand">APS <span>生產規劃工作台</span></div><span class="pill">單廠 · 有限產能</span></header>
+<main><div class="intro"><div><p class="eyebrow">PRODUCTION PLANNING</p><h1>讓每一道工序，各就其位。</h1><p>整合訂單與設備產能，檢視交期風險，建立可執行的生產計畫。</p></div><button id="sample" class="secondary">載入範例（儲存後生效）</button></div>
+<div id="message" role="status" aria-live="polite"></div>
+<section class="panel"><div class="section-title"><h2>01　基本資料</h2><div><button id="export" class="secondary">匯出 JSON</button> <button id="save">儲存資料</button></div></div><p class="hint">先設定設備可用時段，再建立產品工序與訂單。修改後請儲存，才能重新排程。</p>
+<nav aria-label="資料類別"><button class="tab active" data-tab="resources">設備與日曆</button><button class="tab" data-tab="products">產品與製程</button><button class="tab" data-tab="orders">生產訂單</button></nav><div id="editor"></div><button id="add" class="secondary">＋ 新增</button></section>
+<section class="panel"><div class="section-title"><h2>02　執行排程</h2><span class="hint">工廠當地時間 · 24 小時制</span></div><div class="controls"><label>開始時間<input type="datetime-local" id="start" required></label><label>結束時間<input type="datetime-local" id="end" required></label><label>排序規則<select id="rule"><option value="priority">優先順序 → 交期</option><option value="due">交期 → 優先順序</option></select></label><button id="run">產生排程 →</button></div></section>
+<section id="results" hidden><div id="stats" class="stats"></div><section class="panel"><h2>設備甘特圖</h2><p class="hint">橫軸為完整排程期間；色塊代表工序佔用時間，將游標移至色塊可檢視明細。</p><div id="gantt"></div></section><section class="panel"><h2>訂單交期</h2><div id="summary" class="scroll"></div></section><section class="panel"><h2>工序排程明細</h2><div id="operations" class="scroll"></div></section></section>
+<footer>APS MVP · 工序不可中斷 · 尚未納入物料、換線與人員限制</footer></main><script src="/app.js"></script></body></html>
